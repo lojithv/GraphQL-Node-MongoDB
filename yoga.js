@@ -1,14 +1,30 @@
 import { createServer } from 'node:http'
-import { createYoga } from 'graphql-yoga'
-import { schema } from './schema.js'
+import { createSchema, createYoga } from 'graphql-yoga'
+import { fetch } from '@whatwg-node/fetch'
  
-// Create a Yoga instance with a GraphQL schema.
-const yoga = createYoga({ schema })
+// Provide your schema
+const yoga = createYoga({
+  schema: createSchema({
+    typeDefs: /* GraphQL */ `
+      type Query {
+        greeting: String!
+      }
+    `,
+    resolvers: {
+      Query: {
+        greeting: async () => {
+          // This service does not exist
+          const greeting = await fetch('http://localhost:9876/greeting').then(res => res.text())
  
-// Pass it into a server to hook into request handlers.
+          return greeting
+        }
+      }
+    }
+  })
+})
+ 
+// Start the server and explore http://localhost:4000/graphql
 const server = createServer(yoga)
- 
-// Start the server and you're done!
 server.listen(4000, () => {
   console.info('Server is running on http://localhost:4000/graphql')
 })
