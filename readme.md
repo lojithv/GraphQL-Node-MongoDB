@@ -14,7 +14,7 @@ This repository is created for learning GraphQL. It includes different examples 
 
 3. Follow the instructions provided in the README file of the selected branch.
 
-##Contribution
+## Contribution
 Pull requests are welcome! If you have additional examples, improvements, or corrections, feel free to contribute.
 
 Happy learning!
