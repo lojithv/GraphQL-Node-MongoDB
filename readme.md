@@ -18,3 +18,7 @@ This repository is created for learning GraphQL. It includes different examples 
 Pull requests are welcome! If you have additional examples, improvements, or corrections, feel free to contribute.
 
 Happy learning!
+
+## Reference
+
+This CRUD API was developed using the guide at https://reflectoring.io/tutorial-graphql-apollo-server-nodejs-mongodb/#getting-the-project-started.
